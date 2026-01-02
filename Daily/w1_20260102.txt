@@ -1,0 +1,58 @@
+#######################
+# 20260102
+#######################
+## Zooming in IDE (Cursor):
+Ctrl Shift + 	 			# Zoom in
+Ctrl _						# Zoom out
+
+------------------------------------------------------
+## Linux groups and docker access
+> Every file, process, or resource has ownership
+> A group is a named collection of users
+> Permissions can be set for the owner or the group
+> Docker runs a daemon (dockerd) in the background that listens on a Unix socket
+> By default, only root (linux) can access this socket
+> The docker group is a special Linux group whose members are allowed to talk to the Docker daemon without being root.
+> Command:
+	sudo usermod -aG docker $USER
+		> usermod modifies user accounts.
+		> -aG docker means: append the user to the group docker.
+		> $USER is your current username.
+	newgrp docker
+		> newgrp starts a new shell with a different primary group.
+
+
+------------------------------------------------------
+## docker-compose.yml Redis
+> Redis stores its persistent data (like cached sessions or database snapshots) in /data. 
+> By mounting a volume, the data survives even if the container is stopped or deleted.
+> File:
+	volumes:
+		  - redis-data:/data 			# Mount a volume named redis-data to the path /data INSIDE the Redis container
+
+	# Volume Declaration/Configuration for Data Persistence
+	volumes:
+	  redis-data:							# On Docker host (OUTSIDE)
+		driver: local
+
+/data						Inside container		Redis writes here                      
+redis-data volume  On Docker host		Persists data across container restarts 
+
+------------------------------------------------------
+## Create a local branch from the remote
+git checkout -b chunks-retrieval origin/feat/chunks-retrieval
+	> -b chunks-retrieval → creates a new local branch called chunks-retrieval.
+	> origin/feat/chunks-retrieval → sets it to start at the remote branch.
+After this, your local branch tracks the remote branch automatically, so git pull will work without extra flags.
+
+
+------------------------------------------------------
+## What is Uvicorn 
+> is a lightweight, fast, asynchronous web server for Python, primarily used to serve ASGI applications. 
+> Uvicorn supports ASGI (Asynchronous Server Gateway Interface), which is a modern standard for Python web apps.
+> ASGI allows handling asynchronous code, WebSockets, and long-lived connections, which WSGI (the older standard used by Flask/Django) cannot do easily.
+Use Cases:
+> Serving FastAPI, Starlette, or Django Channels applications.
+> Handling APIs, WebSockets, background tasks, and high-throughput async endpoints.
+
+Think of Uvicorn as the engine and your FastAPI app as the car body.

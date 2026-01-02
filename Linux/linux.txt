@@ -1,70 +1,105 @@
-# 🐧 Linux Cheat Sheet
-
-# --- Navigation ---
-pwd                             # Print current directory
-ls                              # List files
-ls -la                          # List all files with details
-cd <dir>                        # Change directory
-cd ..                           # Go up one level
-mkdir <dir>                     # Create directory
-rm <file>                       # Remove file
-rm -r <dir>                     # Remove directory (recursive)
-cp <src> <dest>                 # Copy file/directory
-mv <src> <dest>                 # Move/rename file/directory
-
-# --- File viewing ---
-cat <file>                      # Show file contents
-less <file>                     # View file with scrolling
-head -n 10 <file>               # First 10 lines
-tail -n 10 <file>               # Last 10 lines
-tail -f <file>                  # Follow file updates (logs)
-
-# --- File edit/quit ---
---Vim
-vim <file> 						# Open file for edit
-Esc -> :q!						# Quit without saving
-Esc -> :wq!						# Quit with saving
-
-# --- Exit File ---
-# Ctrl + X				# Exit without saving
-# Ctrl + o -> Enter -> Ctrl X							# 
-
-# --- System & processes ---
-whoami                          # Show current user
-uname -a                        # Show system info
-top                             # Show running processes
-htop                            # Better process monitor (if installed)
-ps aux                          # Show all processes
-kill <pid>                      # Kill process by PID
-df -h                           # Show disk usage
-du -sh *                        # Show folder sizes in current dir
-free -h                         # Show memory usage
-uptime                          # Show how long system has been running
-
-# --- Permissions ---
-chmod +x file.sh                # Make file executable
-chown user:group <file>         # Change file ownership
-sudo <command>                  # Run command as root
-
-# --- Networking ---
-ifconfig                        # Show network interfaces (or `ip a`)
-ping google.com                 # Test connectivity
-curl http://example.com         # Fetch web page
-wget URL                        # Download file
-ssh user@host                   # Connect to remote host via SSH
-scp file user@host:/path        # Copy file to remote host
-
-# --- Package management (Debian/Ubuntu) ---
-sudo apt update                 # Refresh package list
-sudo apt upgrade                # Upgrade all packages
-sudo apt install pkg            # Install package
-sudo apt remove pkg             # Remove package
+# Linux Cheat Sheet
 
 
-# --- Python env
-source knowledge_platform_ai_env/bin/activate		# activate python env
-source /root/llm_app/knowledge_platform_ai_env/bin/activate
+#####################
+# File with nano
+#####################
+Alt + U 							# undo
+Alt + E 							# redo
+ctr + Shift + k 				# remove marked content 
+ctrl + o  -> Enter			# save 
+ctrl + x 							# exit 
+
+#####################
+#  Navigation ---
+#####################
+pwd                             		# Print current directory
+ls                              		# List files
+ls -la                          		# List all files with details
+cd <dir>                        	# Change directory
+cd ..                           		# Go up one level
+mkdir <dir>                    	# Create directory
+rm <file>                       	# Remove file
+rm -r <dir>                     	# Remove directory (recursive)
+cp <src> <dest>            	# Copy file/directory
+mv <src> <dest>           	# Move/rename file/directory
+clear									# Clear the screen
+
+#####################
+#  System & processes ---
+#####################
+whoami                          		# Show current user
+uname -a                        		# Show system info
+top                             			# Show running processes
+htop                            			# Better process monitor (if installed)
+ps aux                          		# Show all processes
+kill <pid>                      			# Kill process by PID
+df -h                           			# Show disk usage
+du -sh *                        			# Show folder sizes in current dir
+free -h                         			# Show memory usage
+uptime                          		# Show how long system has been running
+
+#####################
+#  Permissions ---
+#####################
+chmod +x file.sh                			# Make file executable
+chown user:group <file>         		# Change file ownership
+sudo <command>                  		# Run command as root
+
+#####################
+#  Networking ---
+#####################
+ifconfig                        				# Show network interfaces (or `ip a`)
+ping google.com                 		# Test connectivity
+curl http://example.com         		# Fetch web page
+wget URL                        			# Download file
+ssh user@host                   		# Connect to remote host via SSH
+scp file user@host:/path        	# Copy file to remote host
+
+#####################
+#  Package management (Debian/Ubuntu) ---
+#####################
+sudo apt update                 	# Refresh package list
+sudo apt upgrade                	# Upgrade all packages
+sudo apt install pkg            	# Install package
+sudo apt remove pkg				# Remove package
+
+dpkg -s zlib1g-dev					# Package zlib1g-dev	 installed?
+
+dpkg -s libssl-dev 
+dpkg -s libncurses5-dev 
+
+dpkg -s ibsqlite3-dev 
 
 
+#####################
+# Download Python APT
+#####################
+sudo apt update
+sudo apt install python3.12 python3.12-venv python3.12-dev
+
+
+
+#####################
+# Download Python FROM SOURCE
+#####################
+wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz   				# wget = Web Get
+c: tar -xf Python-3.12.3.tgz																				# tar = Tape Archive (pack or unpack many files into one archive)
+c: cd Python-3.12.3
+# Python needs system libraries to build.
+	c: sudo apt update	
+	c: sudo apt install build-essential 			# compiler tools (gcc, make) 
+	c: sudo apt install libssl-dev 					# SSL support (needed for pip, HTTPS)
+	c: sudo apt install zlib1g-dev 					# compression support
+	c: sudo apt install libncurses5-dev 			# enable Python features (databases, terminal input, etc.)
+	c: sudo apt install libreadline-dev			# enable Python features (databases, terminal input, etc.)
+	c: sudo apt install libffi-dev						# enable Python features (databases, terminal input, etc.)
+c: ./configure --enable-optimizations   			# Configure Python run the setup script in this folder
+c: make -j$(nproc)										# Build Python (compile) 
+c: sudo make altinstall
+
+
+
+	
 
 

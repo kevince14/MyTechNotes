@@ -1,11 +1,11 @@
 # 🐍 Python Virtual Environment (venv) Cheat Sheet
 
 # --- Create & Activate ---
-python -m venv venv              # Create virtual env named "venv"
-python3 -m venv venv             # Same, explicitly with python3 (Linux/macOS)
-venv\Scripts\activate            # Activate env (Windows CMD)
-.\venv\Scripts\activate          # Activate env (PowerShell)
-source venv/bin/activate         # Activate env (Linux/macOS)
+python -m venv venv              	# Create virtual env named "venv"
+python3 -m venv venv             	# Same, explicitly with python3 (Linux/macOS)
+venv\Scripts\activate            		# Activate env (Windows CMD)
+.\venv\Scripts\activate          		# Activate env (PowerShell)
+source venv/bin/activate         	# Activate env (Linux/macOS)
 
 # --- Deactivate ---
 deactivate                       # Exit virtual environment
@@ -25,3 +25,8 @@ python -m pip install --upgrade pip
 # --- Delete Environment ---
 rm -rf venv                      # Remove venv folder (Linux/macOS)
 rmdir /s venv                    # Remove venv folder (Windows CMD)
+
+
+
+
+python -m venv nexus 

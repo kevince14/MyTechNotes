@@ -22,7 +22,7 @@ git push -u origin feature/chatbot
 
 
 #########################################
-# Check out branch
+# Check out main branch
 #########################################
 # checkout main branch if exist
 	git checkout main
@@ -36,7 +36,7 @@ git push -u origin feature/chatbot
 #########################################
 # Local branchs
 #########################################
-git branch 								# list only local branches 
+git branch 				  						# list only local branches 
 git branch -d branch_name				# remove local branch
 
 git checkout -b refactor/integrate-open-ai
@@ -48,11 +48,18 @@ git checkout -b feature/confluence_ingestion
 
 
 #########################################
-# create & switch to NEW branch (local) 
+# Create & switch to NEW branch (local) 
 #########################################
 Create a new branch without losing your local changes
 git checkout -b refactor/llm_prompts
 
+#########################################
+# Create a local branch from the remote
+#########################################
+git checkout -b chunks-retrieval origin/feat/chunks-retrieval
+	> -b chunks-retrieval 				# creates a new local branch called chunks-retrieval.
+	> origin/feat/chunks-retrieval	# sets it to start at the remote branch.
+After this, your local branch tracks the remote branch automatically, so git pull will work without extra flags.
 
 
 ###########################################
@@ -78,14 +85,18 @@ git checkout -p feat/chunks-retrieval -- app/utils/config.py
 	"""
 # Commit
 git commit -m "Partial config update from feat/chunks-retrieval"
+git commit -m "updates 20260102"
 
 # Review the change
 git diff
 
+#####################
+# Account user & mail
+#####################
+# Set user and mail
+c: git config user.name "kevince14"
+c: git config user.email "k.kevinammann@gmail.com"
 
-git checkout -b refactor/enums
-git checkout -b feat/chunks-retrieval
-git checkout feat/chunks-retrieval
-git checkout -b refactor/to-openai-embeddings
-git checkout -b refactor/to-openai-embeddings
-
+# Verify settings:
+c: git config user.name
+c: git config user.email

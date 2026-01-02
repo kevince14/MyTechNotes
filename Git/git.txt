@@ -1,4 +1,10 @@
 
+#################
+# Basic commands
+#################
+git commit -m "updates 20260102"				# commit
+
+
 #########################################
 # List branches
 #########################################
@@ -85,7 +91,6 @@ git checkout -p feat/chunks-retrieval -- app/utils/config.py
 	"""
 # Commit
 git commit -m "Partial config update from feat/chunks-retrieval"
-git commit -m "updates 20260102"
 
 # Review the change
 git diff
@@ -100,3 +105,5 @@ c: git config user.email "k.kevinammann@gmail.com"
 # Verify settings:
 c: git config user.name
 c: git config user.email
+
+

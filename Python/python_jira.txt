@@ -1,0 +1,39 @@
+
+###########################
+# Find ID of custom fields
+###########################
+# any ticker key that contains that field e.g. KP-77
+issue = jira.issue("KP-77", expand="names")
+print(issue.raw["names"])
+
+
+###########################################################
+# Uptade customfield_14048 for all subtasks under epic KP-81
+###########################################################
+	epic_key = "KP-81"
+	custom_field_id = "customfield_14048"
+	dropdown_value = "DevOps"  # the option you want to set
+
+	# Step 1: Get all stories under the epic
+	stories = jira.search_issues(f"'Epic Link' = {epic_key}", maxResults=False)
+
+	# Step 2: Iterate over stories and subtasks
+	for story in stories:
+		for subtask_ref in story.fields.subtasks:
+			subtask = jira.issue(subtask_ref.key)
+			
+			# Step 3: Update dropdown field
+			subtask.update(fields={custom_field_id: {"value": dropdown_value}})
+			
+			print(f"Updated {subtask.key}: {custom_field_id} = {dropdown_value}")
+			print(subtask)
+			
+####################################
+# Filter Dataframe for two criteria
+####################################
+df[
+    (df['Story Created']=='27.08.2025') |
+    (df['Story Created']=='28.08.2025')
+    ]
+    
+#df[df['Story Key']=='KP-7']

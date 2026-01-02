@@ -1,0 +1,61 @@
+# Windows CMD Cheat Sheet
+
+#Navigation & File Management  
+dir         #List files in current directory
+cd          #Show current directory
+cd <path>       #Change directory
+cd ..         #Go up one level
+mkdir <dir>       #Create directory
+rmdir <dir>       #Remove empty directory
+rmdir /s <dir>      #Remove directory and contents
+del <file>        #Delete file
+copy <src> <dest>     #Copy file
+xcopy <src> <dest> /E /I  #Copy directory with subdirs
+move <src> <dest>     #Move or rename file
+
+#System Info & Management  
+echo %USERNAME%     #Show current user
+echo %CD%       #Show current directory
+echo %PATH%       #Show PATH variable
+set         #List environment variables
+set VAR=value       #Set environment variable
+ver         #Show Windows version
+systeminfo        #Show detailed system info
+tasklist        #List running processes
+taskkill /IM notepad.exe /F #Kill process by name
+cls         #Clear screen
+exit          #Close CMD
+
+#File Viewing & Editing  
+type <file>       #Display file contents
+more <file>       #View file one page at a time
+notepad <file>      #Open file in Notepad
+
+#Networking  
+ping google.com     #Test connectivity
+ipconfig        #Show network config
+ipconfig /all       #Show detailed network config
+ipconfig /release     #Release IP address
+ipconfig /renew     #Renew IP address
+tracert google.com    #Trace route to host
+nslookup google.com     #DNS lookup
+netstat -ano      #Show network connections + PIDs
+
+#User & Permissions  
+whoami        #Show current username
+net user        #List users
+net user <user> <pass> /add #Create new user
+net localgroup administrators <user> /add  #Add user to admins
+
+#Disk & Filesystem  
+chkdsk C:       #Check disk C:
+diskpart        #Start disk partition tool
+format <drive>:     #Format a drive (⚠️ destructive)
+tree          #Show directory tree
+
+#Misc  
+cls         #Clear screen
+help          #Show available commands
+help <command>      #Show help for command
+shutdown /s /t 0      #Shutdown immediately
+shutdown /r /t 0      #Restart immediately

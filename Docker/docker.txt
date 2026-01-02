@@ -1,0 +1,75 @@
+# 🐳 Docker Cheat Sheet (one-liners)
+
+# --- Containers ---
+docker ps                   # List running containers
+docker ps -a                # List all containers (running + stopped)
+docker run -d -p 80:8080 image:tag   # Run container detached, map port 80->8080
+docker exec -it <id> bash   # Open interactive shell in container
+docker logs -f <id>         # Stream container logs
+docker stop <id>            # Stop a running container
+docker start <id>           # Start a stopped container
+docker restart <id>         # Restart a container
+docker rm <id>              # Remove a container
+docker rm -f <id>           # Force remove a running container
+docker container prune      # Remove all stopped containers
+
+# --- Images ---
+docker images               # List all images
+docker pull image:tag       # Download image from Docker Hub
+docker build -t name:tag .  # Build image from Dockerfile in current dir
+docker rmi <id>             # Remove image by ID
+docker rmi -f <id>          # Force remove image
+docker image prune          # Remove unused images
+docker system prune -a      # Remove all unused containers/images/networks (⚠️)
+
+
+# --- CREATE DOCKER IMAGE ---
+Windows:
+	> cd /mnt/c/Users/kkevi/Documents/Cloud/Confinale/Projects/p_knowledge_base/02_Code/own/knowledge-platform-ai/
+	> docker buildx build --platform linux/amd64,linux/arm64 -t confinale/knowledge-platform-ai:latest .
+	
+Linux:
+	> docker buildx build --platform linux/amd64,linux/arm64 -t confinale/knowledge-platform-ai:latest .
+   
+
+pull:
+docker pull myusername/myimage:tag 
+-> docker pull confinale/knowledge-platform-ai:latest
+
+push: 
+docker buildx build --platform linux/amd64,linux/arm64 \
+    -t confinale/knowledge-platform-ai:latest \
+    --push \
+    .
+run:
+docker run -d \
+  -p 8000:8000 \
+  -e MONGO_USERNAME=kevinammann \
+  -e MONGO_PASSWORD=0nQRuU1Qzi9pDjrk \
+  -e GOOGLE_API_KEY=AIzaSyAFechbbmY8QzW53hvfAws8WlZLvBVHx10 \
+  confinale/knowledge-platform-ai:latest
+
+
+# Check size of images, containers, volumes
+docker system df
+
+# Create a multi platform build
+docker buildx create --name multiarch --driver docker-container --use
+docker buildx inspect --bootstrap
+
+
+
+# --- Volumes & Networks ---
+docker volume ls            # List volumes
+docker volume rm <name>     # Remove volume
+docker volume prune         # Remove all unused volumes
+docker network ls           # List networks
+docker network rm <name>    # Remove network
+docker network prune        # Remove all unused networks
+
+# --- General ---
+docker info                 # Show system-wide Docker info
+docker version              # Show Docker version
+docker stats                # Show live resource usage of containers
+docker top <id>             # Show processes inside container
+docker inspect <id>         # Show detailed container info (JSON)

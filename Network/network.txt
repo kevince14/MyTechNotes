@@ -1,0 +1,48 @@
+################################################
+# Access the PC via Laptop in same Network
+################################################
+On Linux:
+	> Get Tinys IP adress: ip a -> 192.168.0.23/24
+	> Install ssh
+		sudo apt update
+		sudo apt install openssh-server -y
+On Laptop:
+	> ssh yourusername@ip -> ssh kevin@192.168.0.23
+	> ping 192.168.0.23
+
+################################################
+# Access the PC via Laptop in diff Network
+################################################
+
+On Linux:
+	1) Install OpenSSH on Ubuntu:
+		> sudo apt update
+		> sudo apt install openssh-server
+		> sudo systemctl enable ssh
+		> sudo systemctl start ssh
+		Verify its running:
+		> sudo systemctl status ssh
+
+	2) Find your public IP address of the Ubuntu machine
+		IPv4: 193.5.235.78
+		IPv6:2a02:21b4:ca9c:ad00:9f11:c7e5:570f:b2b9
+		
+	3) Locate Port Forwarding settings (new port forwarding rule)
+	4) ssh kevin@2a02:21b4:ca9c:ad00:9f11:c7e5:570f:b2b9
+	
+	
+ssh -p 2222 kevin@144.2.69.148
+
+#################################
+# Access Hetzner Server SSH Tunnel
+#################################
+"""
+Run Docker images on the hetzner server locally
+and access them from my windows laptop.
+SSH Tunnel needed.
+"""
+ssh -L 4200:localhost:4200 root@49.13.218.161
+	
+
+
+

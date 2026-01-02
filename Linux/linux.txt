@@ -1,0 +1,70 @@
+# 🐧 Linux Cheat Sheet
+
+# --- Navigation ---
+pwd                             # Print current directory
+ls                              # List files
+ls -la                          # List all files with details
+cd <dir>                        # Change directory
+cd ..                           # Go up one level
+mkdir <dir>                     # Create directory
+rm <file>                       # Remove file
+rm -r <dir>                     # Remove directory (recursive)
+cp <src> <dest>                 # Copy file/directory
+mv <src> <dest>                 # Move/rename file/directory
+
+# --- File viewing ---
+cat <file>                      # Show file contents
+less <file>                     # View file with scrolling
+head -n 10 <file>               # First 10 lines
+tail -n 10 <file>               # Last 10 lines
+tail -f <file>                  # Follow file updates (logs)
+
+# --- File edit/quit ---
+--Vim
+vim <file> 						# Open file for edit
+Esc -> :q!						# Quit without saving
+Esc -> :wq!						# Quit with saving
+
+# --- Exit File ---
+# Ctrl + X				# Exit without saving
+# Ctrl + o -> Enter -> Ctrl X							# 
+
+# --- System & processes ---
+whoami                          # Show current user
+uname -a                        # Show system info
+top                             # Show running processes
+htop                            # Better process monitor (if installed)
+ps aux                          # Show all processes
+kill <pid>                      # Kill process by PID
+df -h                           # Show disk usage
+du -sh *                        # Show folder sizes in current dir
+free -h                         # Show memory usage
+uptime                          # Show how long system has been running
+
+# --- Permissions ---
+chmod +x file.sh                # Make file executable
+chown user:group <file>         # Change file ownership
+sudo <command>                  # Run command as root
+
+# --- Networking ---
+ifconfig                        # Show network interfaces (or `ip a`)
+ping google.com                 # Test connectivity
+curl http://example.com         # Fetch web page
+wget URL                        # Download file
+ssh user@host                   # Connect to remote host via SSH
+scp file user@host:/path        # Copy file to remote host
+
+# --- Package management (Debian/Ubuntu) ---
+sudo apt update                 # Refresh package list
+sudo apt upgrade                # Upgrade all packages
+sudo apt install pkg            # Install package
+sudo apt remove pkg             # Remove package
+
+
+# --- Python env
+source knowledge_platform_ai_env/bin/activate		# activate python env
+source /root/llm_app/knowledge_platform_ai_env/bin/activate
+
+
+
+

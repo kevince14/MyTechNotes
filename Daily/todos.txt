@@ -1,0 +1,11 @@
+############
+## 20260102
+############
+> Chunks being returned in Search
+> Prevent validation issues (always test before deployment) 
+> Prevent no response loop 
+	
+> confluence api: reference link and other metadata to be extracted from confluence
+> confluence api: enable logic to just provide parent folder 
+> mongodb duplicates: exec last cell in JUPYTER NOTEBOOK (verify)
+		

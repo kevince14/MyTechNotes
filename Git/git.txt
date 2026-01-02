@@ -1,0 +1,91 @@
+
+#########################################
+# List branches
+#########################################
+git fetch --all			# Before checking remote branches, refresh
+git branch 				# List local branches
+git branch -r 			# List remote branches
+git branch -a			# List all branches
+
+#########################################
+# Create new branch based on an existing
+#########################################
+git fetch  								# Ensure having the latest remote data 
+git checkout feature/initial-code 		# Ensure to be on the right branch
+git pull								# merge origin into local 
+git checkout -b feature/chatbot			# create & switch to new feature branch (local)
+-- work on the local feature brunch --
+git add .
+git commit -m "feature: Add chat controller to main application router"
+git push -u origin feature/chatbot
+
+
+
+#########################################
+# Check out branch
+#########################################
+# checkout main branch if exist
+	git checkout main
+	git pull origin main
+
+# checkout main branch if NOT exist locally
+	git fetch
+	git checkout -b main origin/main
+
+
+#########################################
+# Local branchs
+#########################################
+git branch 								# list only local branches 
+git branch -d branch_name				# remove local branch
+
+git checkout -b refactor/integrate-open-ai
+git checkout -b refactor/kedb	
+git checkout -b feat/confluence_ingestion
+git checkout -b refactor/enums
+
+git checkout -b feature/confluence_ingestion
+
+
+#########################################
+# create & switch to NEW branch (local) 
+#########################################
+Create a new branch without losing your local changes
+git checkout -b refactor/llm_prompts
+
+
+
+###########################################
+# Only merge one file & one file partially 
+###########################################
+git fetch
+
+# Switch to the target branch
+git checkout feat/confluence_ingestion
+git pull origin feat/confluence_ingestion
+
+# Checkout the file from the source branch
+git checkout feat/chunks-retrieval -- app/services/embedder_service.py
+
+# Checkout PARTIALLY the file from the source branch
+git checkout -p feat/chunks-retrieval -- app/utils/config.py
+
+	"""
+	y → take this hunk
+	n → skip this hunk
+	e → edit the hunk manually (best for exactly 5 lines)
+	s → split hunk into smaller pieces
+	"""
+# Commit
+git commit -m "Partial config update from feat/chunks-retrieval"
+
+# Review the change
+git diff
+
+
+git checkout -b refactor/enums
+git checkout -b feat/chunks-retrieval
+git checkout feat/chunks-retrieval
+git checkout -b refactor/to-openai-embeddings
+git checkout -b refactor/to-openai-embeddings
+

@@ -2,8 +2,14 @@
 
 
 #####################
+# File handling
+#####################
+touch python.txt			# creation of new empty file "python.txt"
+
+#####################
 # File with nano
 #####################
+nano python.txt				# Create and edit new file 
 Alt + U 							# undo
 Alt + E 							# redo
 ctr + Shift + k 				# remove marked content 
@@ -77,7 +83,6 @@ dpkg -s ibsqlite3-dev
 #####################
 sudo apt update
 sudo apt install python3.12 python3.12-venv python3.12-dev
-
 
 
 #####################

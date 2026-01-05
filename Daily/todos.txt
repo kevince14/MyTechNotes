@@ -2,6 +2,7 @@
 ## 20260102
 ############
 > Chunks being returned in Search
+	> if chunks without article hanlde error to prevent crash in search
 > Prevent validation issues (always test before deployment) 
 > Prevent no response loop 
 	
@@ -9,3 +10,24 @@
 > confluence api: enable logic to just provide parent folder 
 > mongodb duplicates: exec last cell in JUPYTER NOTEBOOK (verify)
 		
+		
+Add Backend Endpoint:
+
+
+Reference Chat Link. 
+	> if id item_type = chunk 
+			find related artice -> return article object 
+	   else 
+			return the object 
+	
+	object_id of the chunk 
+	> information of the article 
+
+Contribution:
+	> Submit -> add new item 
+	> Tag 	  -> return available tags 
+	
+Profile:
+
+
+	

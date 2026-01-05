@@ -1,4 +1,10 @@
-# 🐍 Python Virtual Environment (venv) Cheat Sheet
+# Python Virtual Environment (venv) Cheat Sheet
+
+
+######################################
+Windows
+######################################
+
 
 # --- Create & Activate ---
 python -m venv venv              	# Create virtual env named "venv"
@@ -28,5 +34,10 @@ rmdir /s venv                    # Remove venv folder (Windows CMD)
 
 
 
+######################################
+Linux 
+######################################
+
+source nexus/bin/activate			# activate virtual env
 
 python -m venv nexus 

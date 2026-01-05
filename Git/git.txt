@@ -3,6 +3,7 @@
 # Basic commands
 #################
 git commit -m "updates 20260102"				# commit
+git branch -m feat/chunks-retrieval  			# rename from chunks-retrieval  to feat/chunks-retrieval 
 
 
 #########################################
@@ -24,7 +25,6 @@ git checkout -b feature/chatbot			# create & switch to new feature branch (local
 git add .
 git commit -m "feature: Add chat controller to main application router"
 git push -u origin feature/chatbot
-
 
 
 #########################################
@@ -54,6 +54,13 @@ git checkout -b feature/confluence_ingestion
 
 
 #########################################
+# Start with local branch, push remote
+#########################################
+git checkout -b feat/item_type_as_filter    	# Creates new local branch not yet available as remove 
+git push -u origin feat/item_type_as_filter 	# Create remote branch based on local & sets it as the upstream for the local branch
+
+
+#########################################
 # Create & switch to NEW branch (local) 
 #########################################
 Create a new branch without losing your local changes
@@ -63,8 +70,8 @@ git checkout -b refactor/llm_prompts
 # Create a local branch from the remote
 #########################################
 git checkout -b chunks-retrieval origin/feat/chunks-retrieval
-	> -b chunks-retrieval 				# creates a new local branch called chunks-retrieval.
-	> origin/feat/chunks-retrieval	# sets it to start at the remote branch.
+	> -b feat/chunks-retrieval 				# creates a new local branch called feat/chunks-retrieval.
+	> origin/feat/chunks-retrieval			# sets it to start at the remote branch.
 After this, your local branch tracks the remote branch automatically, so git pull will work without extra flags.
 
 
